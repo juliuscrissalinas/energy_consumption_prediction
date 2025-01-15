@@ -1,0 +1,14 @@
+# Recommended additional modules for your dev venv
+ipykernel
+pre-commit
+ruff
+black
+mypy
+types-PyYAML
+types-tqdm
+types-setuptools
+ipdb
+ipywidgets
+rich
+sphinx-autobuild
+bump2version
