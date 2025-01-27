@@ -1,0 +1,13 @@
+[32m2025-01-26 20:25:20 +0800[0m - dagster - [34mDEBUG[0m - __ASSET_JOB - 98a55028-804f-4ee0-ad05-768a03be91fb - 6276 - LOGS_CAPTURED - Started capturing logs in process (pid: 6276).
+[32m2025-01-26 20:25:20 +0800[0m - dagster - [34mDEBUG[0m - __ASSET_JOB - 98a55028-804f-4ee0-ad05-768a03be91fb - 6276 - convert_to_float - STEP_START - Started execution of step "convert_to_float".
+[32m2025-01-26 20:25:20 +0800[0m - dagster - [34mDEBUG[0m - __ASSET_JOB - 98a55028-804f-4ee0-ad05-768a03be91fb - convert_to_float - Loading file from: /Users/juliuscrissalinas/Documents/MSDS/ML Ops/ec_prediction_dagster/ec_prediction/tmpy2f9o_15/storage/read_pjmw_data using PickledObjectFilesystemIOManager...
+[32m2025-01-26 20:25:20 +0800[0m - dagster - [34mDEBUG[0m - __ASSET_JOB - 98a55028-804f-4ee0-ad05-768a03be91fb - 6276 - convert_to_float - LOADED_INPUT - Loaded input "read_pjmw_data" using input manager "io_manager", from output "result" of step "read_pjmw_data"
+[32m2025-01-26 20:25:21 +0800[0m - dagster - [34mDEBUG[0m - __ASSET_JOB - 98a55028-804f-4ee0-ad05-768a03be91fb - 6276 - convert_to_float - STEP_INPUT - Got input "read_pjmw_data" of type "[Any]". (Type check passed).
+[32m2025-01-26 20:25:21 +0800[0m - dagster - [34mWARNING[0m - __ASSET_JOB - 98a55028-804f-4ee0-ad05-768a03be91fb - convert_to_float - Skipping line 143206 due to unexpected format: 
+[32m2025-01-26 20:25:21 +0800[0m - dagster - [34mINFO[0m - __ASSET_JOB - 98a55028-804f-4ee0-ad05-768a03be91fb - convert_to_float - First 5 rows of float_data:
+[5077. 4939. 4885. 4857. 4930.]
+[32m2025-01-26 20:25:21 +0800[0m - dagster - [34mDEBUG[0m - __ASSET_JOB - 98a55028-804f-4ee0-ad05-768a03be91fb - 6276 - convert_to_float - STEP_OUTPUT - Yielded output "result" of type "ndarray". (Type check passed).
+[32m2025-01-26 20:25:21 +0800[0m - dagster - [34mDEBUG[0m - __ASSET_JOB - 98a55028-804f-4ee0-ad05-768a03be91fb - convert_to_float - Writing file at: /Users/juliuscrissalinas/Documents/MSDS/ML Ops/ec_prediction_dagster/ec_prediction/tmpy2f9o_15/storage/convert_to_float using PickledObjectFilesystemIOManager...
+[32m2025-01-26 20:25:21 +0800[0m - dagster - [34mDEBUG[0m - __ASSET_JOB - 98a55028-804f-4ee0-ad05-768a03be91fb - 6276 - convert_to_float - ASSET_MATERIALIZATION - Materialized value convert_to_float.
+[32m2025-01-26 20:25:21 +0800[0m - dagster - [34mDEBUG[0m - __ASSET_JOB - 98a55028-804f-4ee0-ad05-768a03be91fb - 6276 - convert_to_float - HANDLED_OUTPUT - Handled output "result" using IO manager "io_manager"
+[32m2025-01-26 20:25:21 +0800[0m - dagster - [34mDEBUG[0m - __ASSET_JOB - 98a55028-804f-4ee0-ad05-768a03be91fb - 6276 - convert_to_float - STEP_SUCCESS - Finished execution of step "convert_to_float" in 1.59s.

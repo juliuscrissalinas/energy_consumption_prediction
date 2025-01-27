@@ -1,0 +1,43 @@
+[32m2025-01-26 20:25:24 +0800[0m - dagster - [34mDEBUG[0m - __ASSET_JOB - 98a55028-804f-4ee0-ad05-768a03be91fb - 6286 - LOGS_CAPTURED - Started capturing logs in process (pid: 6286).
+[32m2025-01-26 20:25:24 +0800[0m - dagster - [34mDEBUG[0m - __ASSET_JOB - 98a55028-804f-4ee0-ad05-768a03be91fb - 6286 - plot_data - STEP_START - Started execution of step "plot_data".
+[32m2025-01-26 20:25:24 +0800[0m - dagster - [34mDEBUG[0m - __ASSET_JOB - 98a55028-804f-4ee0-ad05-768a03be91fb - plot_data - Loading file from: /Users/juliuscrissalinas/Documents/MSDS/ML Ops/ec_prediction_dagster/ec_prediction/tmpy2f9o_15/storage/convert_to_float using PickledObjectFilesystemIOManager...
+[32m2025-01-26 20:25:24 +0800[0m - dagster - [34mDEBUG[0m - __ASSET_JOB - 98a55028-804f-4ee0-ad05-768a03be91fb - 6286 - plot_data - LOADED_INPUT - Loaded input "convert_to_float" using input manager "io_manager", from output "result" of step "convert_to_float"
+[32m2025-01-26 20:25:24 +0800[0m - dagster - [34mDEBUG[0m - __ASSET_JOB - 98a55028-804f-4ee0-ad05-768a03be91fb - 6286 - plot_data - STEP_INPUT - Got input "convert_to_float" of type "ndarray". (Type check passed).
+[32m2025-01-26 20:25:25 +0800[0m - dagster - [34mERROR[0m - [31m__ASSET_JOB - 98a55028-804f-4ee0-ad05-768a03be91fb - 6286 - plot_data - STEP_FAILURE - Execution of step "plot_data" failed.
+
+dagster._core.errors.DagsterExecutionStepExecutionError: Error occurred while executing op "plot_data"::
+
+ValueError: Failed to start Kaleido subprocess. Error stream:
+
+/Users/juliuscrissalinas/Documents/MSDS/ML Ops/ec_prediction_dagster/ec_prediction/.venv/lib/python3.11/site-packages/kaleido/executable/kaleido: line 4: cd: /Users/juliuscrissalinas/Documents/MSDS/ML: No such file or directory
+/Users/juliuscrissalinas/Documents/MSDS/ML Ops/ec_prediction_dagster/ec_prediction/.venv/lib/python3.11/site-packages/kaleido/executable/kaleido: line 5: ./bin/kaleido: No such file or directory
+
+
+Stack Trace:
+  File "/Users/juliuscrissalinas/Documents/MSDS/ML Ops/ec_prediction_dagster/ec_prediction/.venv/lib/python3.11/site-packages/dagster/_core/execution/plan/utils.py", line 56, in op_execution_error_boundary
+    yield
+  File "/Users/juliuscrissalinas/Documents/MSDS/ML Ops/ec_prediction_dagster/ec_prediction/.venv/lib/python3.11/site-packages/dagster/_utils/__init__.py", line 480, in iterate_with_context
+    next_output = next(iterator)
+                  ^^^^^^^^^^^^^^
+  File "/Users/juliuscrissalinas/Documents/MSDS/ML Ops/ec_prediction_dagster/ec_prediction/.venv/lib/python3.11/site-packages/dagster/_core/execution/plan/compute_generator.py", line 127, in _coerce_op_compute_fn_to_iterator
+    result = invoke_compute_fn(
+             ^^^^^^^^^^^^^^^^^^
+  File "/Users/juliuscrissalinas/Documents/MSDS/ML Ops/ec_prediction_dagster/ec_prediction/.venv/lib/python3.11/site-packages/dagster/_core/execution/plan/compute_generator.py", line 115, in invoke_compute_fn
+    return fn(context, **args_to_pass) if context_arg_provided else fn(**args_to_pass)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/juliuscrissalinas/Documents/MSDS/ML Ops/ec_prediction_dagster/ec_prediction/ec_prediction/assets/metrics.py", line 38, in plot_data
+    pio.write_image(fig, constants.MW_TIMESERIES_FILE_PATH)
+  File "/Users/juliuscrissalinas/Documents/MSDS/ML Ops/ec_prediction_dagster/ec_prediction/.venv/lib/python3.11/site-packages/plotly/io/_kaleido.py", line 266, in write_image
+    img_data = to_image(
+               ^^^^^^^^^
+  File "/Users/juliuscrissalinas/Documents/MSDS/ML Ops/ec_prediction_dagster/ec_prediction/.venv/lib/python3.11/site-packages/plotly/io/_kaleido.py", line 143, in to_image
+    img_bytes = scope.transform(
+                ^^^^^^^^^^^^^^^^
+  File "/Users/juliuscrissalinas/Documents/MSDS/ML Ops/ec_prediction_dagster/ec_prediction/.venv/lib/python3.11/site-packages/kaleido/scopes/plotly.py", line 153, in transform
+    response = self._perform_transform(
+               ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/juliuscrissalinas/Documents/MSDS/ML Ops/ec_prediction_dagster/ec_prediction/.venv/lib/python3.11/site-packages/kaleido/scopes/base.py", line 293, in _perform_transform
+    self._ensure_kaleido()
+  File "/Users/juliuscrissalinas/Documents/MSDS/ML Ops/ec_prediction_dagster/ec_prediction/.venv/lib/python3.11/site-packages/kaleido/scopes/base.py", line 198, in _ensure_kaleido
+    raise ValueError(message)
+[0m
