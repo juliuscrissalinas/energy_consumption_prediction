@@ -25,4 +25,7 @@ RUN uv pip install --no-cache \
     psycopg2-binary==2.9.10 \
     boto3==1.36.21 \
     cryptography==44.0.1 \
-    pymysql==1.1.1
+    pymysql==1.1.1 \
+    scikit-learn==1.6.1 \
+    loguru==0.7.3 \
+    xgboost==2.1.4
