@@ -1,9 +1,10 @@
-import mlflow
+import mlflow.sklearn
 
+# Set MLflow tracking server (ensure this matches your MLflow server address)
 mlflow.set_tracking_uri("http://localhost:5000")
 
-with mlflow.start_run():
-    mlflow.log_param("param1", 42)
-    mlflow.log_metric("accuracy", 0.95)
+# Load the registered model
+model_uri = "models:/gradient_boosting_model/1"  # Use "latest" if you always want the newest version
+model = mlflow.sklearn.load_model(model_uri)
 
-print("Test run logged successfully!")
+print("Model loaded successfully!")

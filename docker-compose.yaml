@@ -37,8 +37,7 @@ services:
       - MINIO_ADDRESS=${MINIO_ADDRESS}
       - MINIO_PORT=${MINIO_PORT}
       - MINIO_STORAGE_USE_HTTPS=${MINIO_STORAGE_USE_HTTPS}
-      - MINIO_CONSOLE_ADDRESS=${MINIO_CONSOLE_ADDRESS}
-    command: server /data
+    command: server /data --console-address ":9001"
     healthcheck:
       test: ["CMD", "curl", "-f", "http://localhost:9000/minio/health/live"]
       interval: 30s
@@ -92,7 +91,7 @@ services:
       - AWS_SECRET_ACCESS_KEY=${MINIO_SECRET_ACCESS_KEY}
       - MLFLOW_S3_ENDPOINT_URL={MINIO_CONSOLE_ADDRESS}:${MINIO_PORT}
       - MLFLOW_S3_IGNORE_TLS=true
-      - MLFLOW_TRACKING_URI=${MLFLOW_ADDRESS}:${MLFLOW_PORT}
+      - MLFLOW_TRACKING_URI=${MLFLOW_ADDRESS}:5000
     command: ["gunicorn", "-w", "4", "-k", "uvicorn.workers.UvicornWorker", "api:app", "--bind", "0.0.0.0:8000"]
 
 networks:
