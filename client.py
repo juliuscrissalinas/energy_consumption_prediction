@@ -152,4 +152,4 @@ def main():
     sync_example()
 
 if __name__ == "__main__":
-    main()
+    list_models()
