@@ -72,7 +72,7 @@ with mlflow.start_run():
 
     # Log the trained model with inferred input signature
     signature = infer_signature(X_train, best_model.predict(X_train))
-    mlflow.sklearn.log_model(best_model, "gradient_boosting_model", signature=signature)
+    model_info = mlflow.sklearn.log_model(best_model, "gradient_boosting_model", signature=signature)
 
     # SHAP feature importance analysis
     explainer = shap.Explainer(best_model, X_train)
@@ -85,6 +85,11 @@ with mlflow.start_run():
     plt.savefig(shap_plot_path, bbox_inches="tight")
     plt.close()
     mlflow.log_artifact(shap_plot_path)
+
+    # **Register the model in the MLflow Model Registry**
+    model_uri = model_info.model_uri  # Get the logged model's URI
+    registered_model = mlflow.register_model(model_uri, "GradientBoostingClassifier")
+
 
 logger.info("Best Parameters: {}", grid_search.best_params_)
 logger.info("Evaluation Metrics: {}", metrics)
